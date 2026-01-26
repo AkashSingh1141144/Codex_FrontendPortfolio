@@ -3,7 +3,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./pages/Admin/Login";
-import Dashboard from "./pages/admin/Dashboard";
+import Dashboard from "./pages/Admin/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminLayout from "./admin/AdminLayout";
 import Projects from "./admin/pages/Projects";

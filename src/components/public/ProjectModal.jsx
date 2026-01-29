@@ -17,7 +17,7 @@ const ProjectModal = ({ project, onClose }) => {
         onClick={(e) => e.stopPropagation()}
         className="relative max-w-3xl w-full mx-4 bg-white dark:bg-gray-900 rounded-2xl overflow-hidden"
       >
-        {/* CLOSE BUTTON */}
+        {/* CLOSE */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-2xl text-gray-400 hover:text-red-500"
@@ -34,42 +34,44 @@ const ProjectModal = ({ project, onClose }) => {
 
         {/* CONTENT */}
         <div className="p-8">
-          <h2 className="text-3xl font-bold mb-4">
-            {project.title}
-          </h2>
+          <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
 
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             {project.description}
           </p>
 
           {/* TECH STACK */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.techStack?.map((tech, i) => (
-              <span
-                key={i}
-                className="px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          {project.techStack?.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.techStack.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
 
           {/* LINKS */}
           <div className="flex gap-4">
-            {project.liveUrl && (
+            {project.liveLink && (
               <a
-                href={project.liveUrl}
+                href={project.liveLink}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
               >
                 Live Demo
               </a>
             )}
 
-            {project.githubUrl && (
+            {project.githubLink && (
               <a
-                href={project.githubUrl}
+                href={project.githubLink}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="px-5 py-2 rounded-lg border dark:border-gray-700"
               >
                 GitHub

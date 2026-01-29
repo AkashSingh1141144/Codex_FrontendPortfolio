@@ -71,12 +71,17 @@ const Contact = () => {
         {/* INFO */}
         <div className="text-center font-semibold">
           <p className="mb-4">
-            📧 <a href="mailto:akashsingh.webdeveloper@gmail.com" className="text-blue-600">
+            📧{" "}
+            <a
+              href="mailto:akashsingh.webdeveloper@gmail.com"
+              className="text-blue-600"
+            >
               akashsingh.webdeveloper@gmail.com
             </a>
           </p>
           <p>
-            📞 <a href="tel:+917784841923" className="text-blue-600">
+            📞{" "}
+            <a href="tel:+917784841923" className="text-blue-600">
               +91 7784841923
             </a>
           </p>

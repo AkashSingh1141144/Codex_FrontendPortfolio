@@ -57,7 +57,7 @@ const About = () => {
           github: formData.github,
           linkedin: formData.linkedin,
           twitter: formData.twitter,
-        })
+        }),
       );
       if (formData.image) data.append("image", formData.image);
 
@@ -104,13 +104,19 @@ const About = () => {
             <p className="mt-2">{about.bio}</p>
             <div className="flex gap-3 mt-2 text-blue-600">
               {about.socials?.github && (
-                <a href={about.socials.github} target="_blank">GitHub</a>
+                <a href={about.socials.github} target="_blank">
+                  GitHub
+                </a>
               )}
               {about.socials?.linkedin && (
-                <a href={about.socials.linkedin} target="_blank">LinkedIn</a>
+                <a href={about.socials.linkedin} target="_blank">
+                  LinkedIn
+                </a>
               )}
               {about.socials?.twitter && (
-                <a href={about.socials.twitter} target="_blank">Twitter</a>
+                <a href={about.socials.twitter} target="_blank">
+                  Twitter
+                </a>
               )}
             </div>
           </div>
@@ -143,7 +149,9 @@ const About = () => {
                   type="text"
                   placeholder="Name"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
                   required
                 />
@@ -151,14 +159,18 @@ const About = () => {
                   type="text"
                   placeholder="Role"
                   value={formData.role}
-                  onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, role: e.target.value })
+                  }
                   className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
                   required
                 />
                 <textarea
                   placeholder="Bio"
                   value={formData.bio}
-                  onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, bio: e.target.value })
+                  }
                   className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
                   rows={4}
                   required
@@ -167,27 +179,35 @@ const About = () => {
                   type="text"
                   placeholder="GitHub URL"
                   value={formData.github}
-                  onChange={(e) => setFormData({ ...formData, github: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, github: e.target.value })
+                  }
                   className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
                 />
                 <input
                   type="text"
                   placeholder="LinkedIn URL"
                   value={formData.linkedin}
-                  onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, linkedin: e.target.value })
+                  }
                   className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
                 />
                 <input
                   type="text"
                   placeholder="Twitter URL"
                   value={formData.twitter}
-                  onChange={(e) => setFormData({ ...formData, twitter: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, twitter: e.target.value })
+                  }
                   className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
                 />
                 <input
                   type="file"
                   accept="image/*"
-                  onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, image: e.target.files[0] })
+                  }
                   className="w-full"
                 />
 

@@ -4,7 +4,6 @@ import { Outlet, NavLink } from "react-router-dom";
 const AdminLayout = () => {
   return (
     <div className="min-h-screen flex bg-gray-100 dark:bg-gray-950">
-      
       {/* 👉 SIDEBAR */}
       <aside className="w-64 bg-white dark:bg-gray-900 p-4">
         <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-6">

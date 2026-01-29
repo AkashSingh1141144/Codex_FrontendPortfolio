@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import ProjectCard from "../components/ProjectCard";
 import AddProjectModal from "../components/AddProjectModal";
-import { getProjects, addProject, deleteProject, updateProject } from "../../api/project.api";
+import {
+  getProjects,
+  addProject,
+  deleteProject,
+  updateProject,
+} from "../../api/project.api";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -62,7 +67,10 @@ const Projects = () => {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Manage Projects</h1>
         <button
-          onClick={() => { setEditProject(null); setShowModal(true); }}
+          onClick={() => {
+            setEditProject(null);
+            setShowModal(true);
+          }}
           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
           + Add Project

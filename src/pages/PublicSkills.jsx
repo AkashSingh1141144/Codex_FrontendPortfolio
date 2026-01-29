@@ -26,7 +26,6 @@ const PublicSkills = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-16">
-      
       {/* 🔹 Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -48,14 +47,13 @@ const PublicSkills = () => {
       ) : (
         categories.map((category, idx) => {
           const filtered = skills.filter(
-            (skill) => skill.category === category
+            (skill) => skill.category === category,
           );
 
           if (filtered.length === 0) return null;
 
           return (
             <div key={category} className="mb-14">
-              
               {/* 🔹 Category title */}
               <motion.h2
                 initial={{ opacity: 0, x: -40 }}

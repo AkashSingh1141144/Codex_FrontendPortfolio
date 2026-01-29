@@ -17,70 +17,55 @@ import PublicAbout from "./pages/PublicAbout";
 import PublicSkills from "./pages/PublicSkills";
 import PublicProjects from "./pages/PublicProjects";
 import Contact from "./pages/Contact";
-// import Home from "./pages/Home";
-// import About from "./pages/About";
-// import Skills from "./pages/Skills";
-// import Contact from "./pages/Contact";
 
 function App() {
-
   const [welcomeComplete, setWelcomeComplete] = useState(false);
-  
+
   return (
     <>
-     <ThemeProvider>
-    <div>
-      {!welcomeComplete ? (
-        <WelcomeScreen onComplete={() => setWelcomeComplete(true)} />
-      ) : (
-        
-    
-   
-      <BrowserRouter>
-        <div className="bg-gray-50 dark:bg-gray-900 min-h-screen text-gray-900 dark:text-gray-100">
-          <Navbar />
-          <div className="pt-16">
-            <Routes>
+      <ThemeProvider>
+        <div>
+          {!welcomeComplete ? (
+            <WelcomeScreen onComplete={() => setWelcomeComplete(true)} />
+          ) : (
+            <BrowserRouter>
+              <div className="bg-gray-50 dark:bg-gray-900 min-h-screen text-gray-900 dark:text-gray-100">
+                <Navbar />
+                <div className="pt-16">
+                  <Routes>
+                    {/* Public Routes */}
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<PublicAbout />} />
+                    <Route path="/skills" element={<PublicSkills />} />
+                    <Route path="/projects" element={<PublicProjects />} />
+                    <Route path="/contact" element={<Contact />} />
 
+                    {/* Admin Login */}
+                    <Route path="/admin/register" element={<Register />} />
+                    <Route path="/admin/login" element={<Login />} />
 
-              { /* Public Routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<PublicAbout />} />
-              <Route path="/skills" element={<PublicSkills />} />
-              <Route path="/projects" element={<PublicProjects />} />
-              <Route path="/contact" element={<Contact />} />
-              
-
-  {/* Admin Login */}
-  <Route path="/admin/register" element={<Register />} />
-  <Route path="/admin/login" element={<Login />} />
-
-  {/* Admin Protected Layout */}
-  <Route
-    path="/admin"
-    element={
-      <PrivateRoute>
-        <AdminLayout />
-      </PrivateRoute>
-    }
-  >
-    <Route path="dashboard" element={<Dashboard />} />
-    <Route path="about" element={<About />} />
-    <Route path="skills" element={<Skills />} />
-    <Route path="projects" element={<Projects />} />
-  </Route>
-
-</Routes>
-
-          </div>
-          <Footer />
+                    {/* Admin Protected Layout */}
+                    <Route
+                      path="/admin"
+                      element={
+                        <PrivateRoute>
+                          <AdminLayout />
+                        </PrivateRoute>
+                      }
+                    >
+                      <Route path="dashboard" element={<Dashboard />} />
+                      <Route path="about" element={<About />} />
+                      <Route path="skills" element={<Skills />} />
+                      <Route path="projects" element={<Projects />} />
+                    </Route>
+                  </Routes>
+                </div>
+                <Footer />
+              </div>
+            </BrowserRouter>
+          )}
         </div>
-      </BrowserRouter>
-      
-   
-      )}
-    </div>
-     </ThemeProvider>
+      </ThemeProvider>
     </>
   );
 }

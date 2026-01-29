@@ -8,7 +8,9 @@ const ProjectCard = ({ project, onDelete, onEdit }) => (
     />
 
     {/* Title & Description */}
-    <h3 className="font-semibold text-gray-800 dark:text-gray-100">{project.title}</h3>
+    <h3 className="font-semibold text-gray-800 dark:text-gray-100">
+      {project.title}
+    </h3>
     <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
 
     {/* Optional Link */}

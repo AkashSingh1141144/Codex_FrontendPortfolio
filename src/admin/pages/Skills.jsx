@@ -49,7 +49,12 @@ const Skills = () => {
 
       setShowModal(false);
       setEditSkill(null);
-      setFormData({ title: "", category: "Frontend", level: "Intermediate", icon: null });
+      setFormData({
+        title: "",
+        category: "Frontend",
+        level: "Intermediate",
+        icon: null,
+      });
       fetchSkills();
     } catch (err) {
       console.error(err);
@@ -84,7 +89,10 @@ const Skills = () => {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Manage Skills</h1>
         <button
-          onClick={() => { setEditSkill(null); setShowModal(true); }}
+          onClick={() => {
+            setEditSkill(null);
+            setShowModal(true);
+          }}
           className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
           + Add Skill
@@ -147,13 +155,17 @@ const Skills = () => {
                 type="text"
                 placeholder="Title"
                 value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })
+                }
                 className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
                 required
               />
               <select
                 value={formData.category}
-                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, category: e.target.value })
+                }
                 className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
               >
                 <option>Frontend</option>
@@ -163,7 +175,9 @@ const Skills = () => {
               </select>
               <select
                 value={formData.level}
-                onChange={(e) => setFormData({ ...formData, level: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, level: e.target.value })
+                }
                 className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring focus:ring-blue-400"
               >
                 <option>Beginner</option>
@@ -173,7 +187,9 @@ const Skills = () => {
               <input
                 type="file"
                 accept="image/*"
-                onChange={(e) => setFormData({ ...formData, icon: e.target.files[0] })}
+                onChange={(e) =>
+                  setFormData({ ...formData, icon: e.target.files[0] })
+                }
                 className="w-full"
               />
 

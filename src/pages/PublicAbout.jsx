@@ -44,14 +44,14 @@ const PublicAbout = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 px-6 py-16">
-       <motion.h1
+      <motion.h1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-4xl font-bold text-center mb-14"
       >
-        About <span className="text-blue-500">Me</span> 
+        About <span className="text-blue-500">Me</span>
       </motion.h1>
-      
+
       {/* ===== HERO SECTION ===== */}
       <motion.div
         variants={fadeUp}
@@ -60,7 +60,6 @@ const PublicAbout = () => {
         transition={{ duration: 0.6 }}
         className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10"
       >
-        
         {/* Image */}
         {about.profileImage?.url && (
           <motion.img
@@ -120,7 +119,6 @@ const PublicAbout = () => {
 
       {/* ===== EXTRA CONTENT (PAGE FILL) ===== */}
       <div className="max-w-5xl mx-auto mt-20 space-y-20">
-
         {/* Section 1 */}
         <motion.section
           variants={fadeUp}
@@ -172,7 +170,6 @@ const PublicAbout = () => {
             and work on impactful products.
           </p>
         </motion.section>
-
       </div>
     </div>
   );

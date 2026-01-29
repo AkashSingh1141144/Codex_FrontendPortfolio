@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import TypeWriter from "../components/TypeWriter";
 
 const Home = () => {
   return (
@@ -25,15 +26,17 @@ const Home = () => {
           Akash Singh
         </motion.h1>
 
-        {/* 💼 Role */}
-        <motion.h2
+        {/* 💼 Role (Typewriter) */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-3 text-xl md:text-2xl font-medium text-blue-600"
+          className="mt-3"
+          role="heading"
+          aria-level={2}
         >
-          MERN Stack Developer
-        </motion.h2>
+          <TypeWriter />
+        </motion.div>
 
         {/* 📝 Bio */}
         <motion.p
@@ -67,6 +70,7 @@ const Home = () => {
             Contact Me
           </a>
         </motion.div>
+
       </div>
     </section>
   );

@@ -35,7 +35,9 @@ const WelcomeScreen = ({ onComplete }) => {
   const progressTrack = theme === "dark" ? "bg-gray-700" : "bg-gray-300";
 
   return (
-    <div className={`fixed inset-0 ${bgClass} ${textClass} flex flex-col justify-center items-center z-50`}>
+    <div
+      className={`fixed inset-0 ${bgClass} ${textClass} flex flex-col justify-center items-center z-50`}
+    >
       <h1 className="text-3xl font-bold mb-6">Welcome to My Portfolio</h1>
 
       <div className={`w-64 h-4 ${progressTrack} rounded overflow-hidden`}>

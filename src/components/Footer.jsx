@@ -42,7 +42,6 @@ const Footer = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-        
         {/* Left side */}
         <motion.p
           whileHover={{ scale: 1.03 }}
@@ -55,7 +54,8 @@ const Footer = () => {
           onClick={handleSecretClick}
           title="Secret Admin Login"
         >
-          &copy; {new Date().getFullYear()} MyPortfolio. All rights reserved.
+          &copy; {new Date().getFullYear()} Akash Singh Portfolio. All rights
+          reserved.
         </motion.p>
 
         {/* Right side */}
@@ -67,8 +67,8 @@ const Footer = () => {
                 item === "GitHub"
                   ? "https://github.com/AkashSingh1141144"
                   : item === "LinkedIn"
-                  ? "https://www.linkedin.com/in/akash-kumar-singh-536406255"
-                  : "https://twitter.com/yourusername"
+                    ? "https://www.linkedin.com/in/akash-kumar-singh-536406255"
+                    : "https://twitter.com/yourusername"
               }
               target="_blank"
               rel="noopener noreferrer"

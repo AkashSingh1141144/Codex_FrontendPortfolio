@@ -28,8 +28,8 @@ const PublicAbout = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-500">Loading about...</p>
+      <div className="flex justify-center items-center min-h-[40vh]">
+        <p className="text-lg font-medium animate-pulse">Loading about...</p>
       </div>
     );
   }
@@ -47,7 +47,7 @@ const PublicAbout = () => {
       <motion.h1
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold text-center mb-14"
+        className="text-4xl sm:text-5xl font-bold text-center mb-14"
       >
         About <span className="text-blue-500">Me</span>
       </motion.h1>

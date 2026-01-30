@@ -33,7 +33,7 @@ const PublicSkills = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
-        <h1 className="text-4xl font-bold mb-3">
+        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-14">
           My <span className="text-blue-600">Skills</span>
         </h1>
         <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
@@ -43,7 +43,11 @@ const PublicSkills = () => {
       </motion.div>
 
       {loading ? (
-        <p className="text-center text-gray-500">Loading skills...</p>
+        <div className="flex justify-center items-center min-h-[40vh]">
+          <p className="text-lg font-medium animate-pulse">
+            Loading Skills.....
+          </p>
+        </div>
       ) : (
         categories.map((category, idx) => {
           const filtered = skills.filter(

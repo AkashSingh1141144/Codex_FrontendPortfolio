@@ -3,7 +3,7 @@ import TypeWriter from "../components/TypeWriter";
 
 const Home = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 bg-white dark:bg-gray-900 transition-colors">
+    <section className="min-h-screen flex items-center justify-center px-6  dark:bg-gray-900 transition-colors">
       <div className="max-w-4xl text-center">
 
         {/* 👋 Intro */}

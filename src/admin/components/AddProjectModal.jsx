@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { FiX } from "react-icons/fi";
 
+const CATEGORY_OPTIONS = [
+  "html-css-js",
+  "react-js",
+  "next-js",
+  "react-ts",
+  "next-ts",
+  "mern",
+  "backend",
+];
+
 const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
   const [title, setTitle] = useState(project?.title || "");
   const [description, setDescription] = useState(project?.description || "");
@@ -10,8 +20,9 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
   const [githubLink, setGithubLink] = useState(project?.githubLink || "");
 
   const [techStack, setTechStack] = useState(
-    project?.techStack?.join(", ") || "",
+    project?.techStack?.join(", ") || ""
   );
+  const [category, setCategory] = useState(project?.category || "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,21 +30,18 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
-
     if (imageFile) formData.append("image", imageFile);
-
     formData.append("liveLink", liveLink);
     formData.append("githubLink", githubLink);
 
+    // 🔹 TechStack and category JSON safe
     formData.append(
       "techStack",
       JSON.stringify(
-        techStack
-          .split(",")
-          .map((t) => t.trim())
-          .filter(Boolean),
-      ),
+        techStack.split(",").map((t) => t.trim()).filter(Boolean)
+      )
     );
+    formData.append("category", JSON.stringify(category.toLowerCase()));
 
     onSave(formData);
   };
@@ -46,7 +54,6 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
       />
-
       <div className="relative bg-white dark:bg-gray-900 w-full max-w-lg rounded-xl shadow-lg p-6 z-10">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">
@@ -56,7 +63,6 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
             <FiX size={22} />
           </button>
         </div>
-
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -66,7 +72,6 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
             className="w-full px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
             required
           />
-
           <textarea
             placeholder="Project Description"
             rows="3"
@@ -75,13 +80,24 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
             className="w-full px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
             required
           />
-
           <input
             type="file"
             onChange={(e) => setImageFile(e.target.files[0])}
             className="w-full px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
           />
-
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+            required
+          >
+            <option value="">Select Category</option>
+            {CATEGORY_OPTIONS.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat.toUpperCase()}
+              </option>
+            ))}
+          </select>
           <input
             type="text"
             placeholder="Tech Stack (React, Node, MongoDB)"
@@ -89,7 +105,6 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
             onChange={(e) => setTechStack(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
           />
-
           <input
             type="text"
             placeholder="Live Link"
@@ -97,7 +112,6 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
             onChange={(e) => setLiveLink(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
           />
-
           <input
             type="text"
             placeholder="GitHub Link"
@@ -105,7 +119,6 @@ const AddProjectModal = ({ isOpen, onClose, onSave, project }) => {
             onChange={(e) => setGithubLink(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
           />
-
           <div className="flex justify-end gap-3 pt-2">
             <button type="button" onClick={onClose}>
               Cancel
